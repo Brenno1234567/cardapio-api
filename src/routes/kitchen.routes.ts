@@ -18,7 +18,7 @@ kitchenRouter.get(
   asyncHandler(async (req, res) => {
     const user = requireUser(req);
     const status = typeof req.query.status === "string" ? req.query.status : "active";
-    const activeStatuses: Array<"received" | "preparing" | "ready"> = ["received", "preparing", "ready"];
+    const activeStatuses: Array<"received" | "accepted" | "preparing" | "ready"> = ["received", "accepted", "preparing", "ready"];
     const rows =
       status === "active"
         ? await db

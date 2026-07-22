@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const statusSchema = z.enum(["received", "preparing", "ready", "delivered", "paid", "cancelled"]);
+export const statusSchema = z.enum(["received", "accepted", "preparing", "ready", "delivered", "paid", "cancelled"]);
 export const tableStatusSchema = z.enum(["free", "occupied", "payment"]);
 export const userRoleSchema = z.enum(["admin", "manager", "employee", "kitchen"]);
 
@@ -67,4 +67,3 @@ export const settingsSchema = z.object({
   hours: z.string().nullable().optional(),
   primaryColor: z.string().min(4)
 });
-

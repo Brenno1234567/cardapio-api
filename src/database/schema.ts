@@ -69,7 +69,7 @@ export const orders = sqliteTable("orders", {
   tableId: text("table_id").references(() => tables.id),
   tableName: text("table_name").notNull(),
   status: text("status", {
-    enum: ["received", "preparing", "ready", "delivered", "paid", "cancelled"]
+    enum: ["received", "accepted", "preparing", "ready", "delivered", "paid", "cancelled"]
   }).notNull().default("received"),
   subtotalCents: integer("subtotal_cents").notNull(),
   serviceFeeCents: integer("service_fee_cents").notNull(),
@@ -106,4 +106,3 @@ export type CategoryRow = typeof categories.$inferSelect;
 export type ProductRow = typeof products.$inferSelect;
 export type OrderRow = typeof orders.$inferSelect;
 export type OrderItemRow = typeof orderItems.$inferSelect;
-
