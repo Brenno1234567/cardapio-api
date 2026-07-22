@@ -26,6 +26,20 @@ export function createApp() {
   app.use(express.json({ limit: "1mb" }));
   app.use(morgan(env.NODE_ENV === "production" ? "combined" : "dev"));
 
+  app.get("/", (_req, res) => {
+    res.json({
+      status: "ok",
+      service: "cardapio-api",
+      endpoints: {
+        health: "/health",
+        restaurant: "/api/public/restaurant",
+        categories: "/api/public/categories",
+        products: "/api/public/products",
+        login: "/api/auth/login"
+      }
+    });
+  });
+
   app.get("/health", (_req, res) => {
     res.json({
       status: "ok",
@@ -47,4 +61,3 @@ export function createApp() {
 
   return app;
 }
-
