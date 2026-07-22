@@ -4,7 +4,7 @@ services:
     env: node
     plan: free
     buildCommand: npm install && npm run build
-    startCommand: npm run db:migrate && npm run start
+    startCommand: npm run db:setup && npm run start
     envVars:
       - key: NODE_ENV
         value: production
@@ -18,4 +18,3 @@ services:
         sync: false
       - key: CORS_ORIGIN
         sync: false
-
